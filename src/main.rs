@@ -12,14 +12,23 @@ fn dialogue() {
     
     io::stdin()
         .read_line(&mut u_input)
-        .expect("Failed to read input");
+        .expect("Failed to read from stdin");
     
+    // Need to clean user input in case they don't type an "F" or "C"
+    // let mut u_input = match u_input.trim().parse() {
+    
+    //     Err(e) => {
+    //         println!("Please input 'f' or 'c'. Error: {}", e);
+    //         dialogue();
+    //     }
+    // };
+
     for i in u_input.chars() { // Yes, the hard way.
         if i == 'f'|| i == 'F' {
-            println!("That's {} in celsius", f2c());
+            println!("That's {}C", f2c());
             break;
         } else if i == 'c' || i == 'C' {
-            println!("That's {} in fahrenheit", c2f());
+            println!("That's {}F", c2f());
             break;
         }
     }
